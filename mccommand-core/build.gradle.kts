@@ -1,1 +1,1 @@
-dependencies { api(project(":mccommandapi")) }
+dependencies { api(project(":mccommand-api")) }

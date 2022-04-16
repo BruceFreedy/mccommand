@@ -1,6 +1,6 @@
 rootProject.name = "mccommand"
 
 include(
-    "mccommandapi",
+    "mccommand-api",
     "mccommand-core",
 )
