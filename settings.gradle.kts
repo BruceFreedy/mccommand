@@ -1,6 +1,9 @@
 rootProject.name = "mccommand"
 
+val rootName = rootProject.name
+
 include(
-    "mccommand-api",
-    "mccommand-core",
+    "$rootName-api",
+    "$rootName-core",
+    "$rootName-publish",
 )

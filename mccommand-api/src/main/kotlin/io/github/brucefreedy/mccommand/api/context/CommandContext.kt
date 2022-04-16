@@ -3,7 +3,7 @@ package io.github.brucefreedy.mccommand.api.context
 open class CommandContext<S>(
     val source: S, val command: String) {
     val argument = ArrayList<ParsedArgument<S>>()
-    val label get() = argument.
+    val label get() = if (argument.isEmpty()) "" else argument[0].name
     val args
         get() =
             if (argument.isEmpty()) ArrayList()
