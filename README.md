@@ -15,6 +15,7 @@ val commandDispatcher = CommandDispatcher<Player> {
 }
 
 commandDispatcher.execute("할복", Player("hong gil dong"))
+commandDispatcher.execute("포인트 100", Player(""))
 
 ```
 
