@@ -24,6 +24,7 @@ tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
     archiveClassifier.set("")
 }
 
+
 publishing {
     publications {
         create<MavenPublication>("mccommand") {
@@ -33,6 +34,18 @@ publishing {
             artifact(tasks["shadowJar"])
         }
     }
+    repositories {
+        maven {
+            url = uri("https://s01.oss.sonatype.org/content/repositories/releases/")
+            credentials {
+                val prop = org.jetbrains.kotlin.konan.properties.Properties()
+                prop.load(rootProject.file("env.properties").inputStream())
+                username = (prop["gpr.user"] ?: System.getenv("gpr.user"))?.toString()
+                password = (prop["gpr.key"] ?: System.getenv("gpr.key"))?.toString()
+            }
+        }
+    }
+/*
     repositories {
         maven {
             name = "mccommand"
@@ -45,4 +58,5 @@ publishing {
             }
         }
     }
+*/
 }

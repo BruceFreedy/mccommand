@@ -1,8 +1,18 @@
 # mccommand
 
-# 
+# Import 
 
-# 예제
+```gradle
+repositories {
+    maven("https://s01.oss.sonatype.org/content/repositories/releases")
+}
+
+dependencies {
+    implementation("io.github.brucefreedy:mccommand:1.0.1")
+}
+```
+
+# Examples
 
 ```kotlin
 data class Player(val name: String)
@@ -10,15 +20,14 @@ data class Player(val name: String)
 //...
 
 val commandDispatcher = CommandDispatcher<Player> {
-    //  "할복" 명령어를 만들어 보고 싶으세요?
-    executeCommand("할복") { TODO("할복하기") }
+    executeCommand("selfkill") { TODO("selfkill") }
     
-    executeCommand("포인트") { println("당신은 /포인트 ${args[0]} 을(를) 입력했음") }
+    executeCommand("point") { println("you execute /point ${args[0]} command") }
 
 }
 
-commandDispatcher.execute("할복", Player("hong gil dong"))
-commandDispatcher.execute("포인트 100", Player(""))
+commandDispatcher.execute("selfkill", Player("hong gil dong"))
+commandDispatcher.execute("point 100", Player(""))
 
 ```
 
