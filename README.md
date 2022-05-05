@@ -4,11 +4,21 @@
 
 ```gradle
 repositories {
-    maven("https://s01.oss.sonatype.org/content/repositories/releases")
+    mavenCentral()
 }
 
 dependencies {
     implementation("io.github.brucefreedy:mccommand:1.0.1")
+}
+```
+
+```gradle
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.github.brucefreedy:mccommand:1.0.1'
 }
 ```
 
