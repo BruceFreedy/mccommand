@@ -14,7 +14,7 @@ open class ArgumentCommandNode<S> : CommandNode<S>() {
         arg.forEach { addChild(it, node) }
     }
 
-    fun executeThen(vararg arg: String, init: CommandContext<S>.() -> Unit) = then(*arg) { execute(init) }
+    fun thenExecute(vararg arg: String, init: CommandContext<S>.() -> Unit) = then(*arg) { execute(init) }
 
     fun execute(init: CommandContext<S>.() -> Unit) {
         execute = init

@@ -9,7 +9,7 @@ open class RootCommandNode<S> : ArgumentCommandNode<S>() {
         names.forEach { addChild(it, ArgumentCommandNode<S>().apply(init)) }
     }
 
-    fun executeCommand(vararg arg: String, init: CommandContext<S>.() -> Unit) = command(*arg) { execute(init) }
+    fun commandExecute(vararg arg: String, init: CommandContext<S>.() -> Unit) = command(*arg) { execute(init) }
 
     fun parse(command: String, source: S) = CommandContextBuilder(source, command).apply { parse(this) }
 

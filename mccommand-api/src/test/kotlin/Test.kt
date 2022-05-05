@@ -5,14 +5,14 @@ fun main() {
         CommandDispatcher<Any> {
             command("killall") {
                 execute { println("Usage: /killall [zombie, boss, slime]") }
-                executeThen("zombie") { println("whole zombie killed!") }
+                thenExecute("zombie") { println("whole zombie killed!") }
                 then("boss") {
                     val bosses = arrayOf("dragon", "wither", "golem")
                     execute { println("Usage: /killall boss [${bosses.joinToString(", ")}]") }
-                    executeThen(*bosses) { println("whole ${args[1]} boss killed!") }
+                    thenExecute(*bosses) { println("whole ${args[1]} boss killed!") }
                     tab { listOf(*bosses) }
                 }
-                executeThen("slime") {  println("whole slime crushed!") }
+                thenExecute("slime") {  println("whole slime crushed!") }
             }
         }
     fun execute(command: String) = commandDispatcher.execute(command, Any())
@@ -24,3 +24,4 @@ fun main() {
     execute("killall slime")
     execute("killall slime")
 }
+

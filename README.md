@@ -15,20 +15,27 @@ dependencies {
 # Examples
 
 ```kotlin
-data class Player(val name: String)
+import io.github.brucefreedy.mccommand.MCCommand
+import io.github.brucefreedy.mccommand.player
 
-//...
+MCCommand(plugin) {
+    command("party") {
 
-val commandDispatcher = CommandDispatcher<Player> {
-    executeCommand("selfkill") { TODO("selfkill") }
-    
-    executeCommand("point") { println("you execute /point ${args[0]} command") }
+        thenExecute("create") { println("You create a new party") }
 
+        then("invite") {
+            tab { listOf("Jimmy", "Sam", "Charlie") }
+
+            execute { println("You invited ${args[1]}!") }
+        }
+
+    }
+    command("show") {
+        thenExecute("myname") {
+            println(player.name)
+        }
+    }
 }
-
-commandDispatcher.execute("selfkill", Player("hong gil dong"))
-commandDispatcher.execute("point 100", Player(""))
-
 ```
 
 ---
