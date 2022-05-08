@@ -30,7 +30,7 @@ publishing {
         create<MavenPublication>("mccommand") {
             groupId = "io.github.$repoName"
             artifactId = rootName
-            version = "1.0.2"
+            version = "1.0.3"
             artifact(tasks["shadowJar"])
         }
     }
