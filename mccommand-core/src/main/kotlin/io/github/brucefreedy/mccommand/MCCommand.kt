@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin
 
 typealias Root = RootCommandNode<CommandSender>
 
-class MCCommand(plugin: JavaPlugin, init: Root.() -> Unit)
+open class MCCommand(plugin: JavaPlugin, init: Root.() -> Unit)
     : CommandDispatcher<CommandSender>(init), CommandExecutor, TabCompleter{
 
     init {
